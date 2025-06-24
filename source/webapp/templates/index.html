@@ -10,26 +10,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+<form method="post" action="/">
+{% csrf_token %}
 <header class="header">
     <div class="container">
         <div class="hblock">
             <h1 class="h-block">Задачи</h1>
             <a href="/add-task/">Новая задача</a>
-            <a href="/dell-task/">Удалить выбранную задачу</a>
+                <input type="submit" value="Удалить выбранную задачу" class="button-link">
         </div>
     </div>
 </header>
 <main class="container">
-    <div class="nav-block">
+        <div class="nav-block">
         <p class="id-main">ID</p>
         <p class="title-main">Статус</p>
         <p class="title-main">Описание</p>
         <p class="title-main">Дата выполнения</p>
-    </div>
+            </div>
 </main>
 <div class="container">
     {% for task in tasks %}
     <div class="main-block">
+            <input type="checkbox" name="task_ids" value="{{ task.id }}">
             <p class="id-main">{{ task.id }}</p>
             <p class="title-main">{{ task.status }}</p>
             <p class="title-main">{{ task.description }}</p>
@@ -38,7 +41,6 @@
     </div>
     {% endfor %}
 </div>
-
-
+</form>
 </body>
 </html>

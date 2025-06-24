@@ -6,7 +6,13 @@ from webapp.models import Task, status_choices
 
 def index(request):
     tasks = Task.objects.order_by('-created_at')
-    return render(request, 'index.html', {"tasks": tasks})
+    if request.method == "POST":
+        task_ids = request.POST.getlist('task_ids')
+        if task_ids:
+            Task.objects.filter(id__in=task_ids).delete()
+        return HttpResponseRedirect("/")
+    else:
+        return render(request, 'index.html', {"tasks": tasks})
 
 
 def create_task(request):
@@ -19,13 +25,5 @@ def create_task(request):
     else:
         return render(request, 'create_task.html', {"status_choices": status_choices})
 
-def delete_task(request):
-    tasks = Task.objects.order_by('-created_at')
-    if request.method == "POST":
-        task_id = request.POST.get('task_id')
-        Task.objects.filter(id=task_id).delete()
-        return HttpResponseRedirect("/")
-    else:
-        return render(request, 'delete_task.html', {"tasks": tasks})
 
 

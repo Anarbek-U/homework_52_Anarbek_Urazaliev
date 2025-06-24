@@ -18,11 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.views import index, create_task, delete_task
+from webapp.views import index, create_task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
     path('add-task/', create_task),
-    path('dell-task/', delete_task)
 ]

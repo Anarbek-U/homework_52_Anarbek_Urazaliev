@@ -36,14 +36,8 @@ body {
 .nav-block {
     background-color: darkgrey;
     display: flex;
-    gap: 101px;
-}
-
-.nav-dell-block {
-    background-color: darkgrey;
-    display: flex;
-    gap: 81px;
-    padding-left: 182px;
+    gap: 87px;
+    padding-left: 132px;
 }
 
 .id-main{
@@ -57,14 +51,9 @@ body {
 }
 
 .main-block {
-    display: flex;
-    gap: 101px;
-    background-color: rgba(72, 184, 223, 0.2);
-}
-
-.main-dell-block {
 display: flex;
 gap: 81px;
+padding-left: 30px;
 background-color: rgba(72, 184, 223, 0.2);
 }
 
@@ -89,4 +78,13 @@ background-color: rgba(72, 184, 223, 0.2);
     width: 53%;
     margin-left: 20%;
     margin-top: 5%;
+}
+
+.button-link {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0 15px;
+    font: inherit;
 }
