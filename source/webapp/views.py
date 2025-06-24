@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from webapp.models import Task
+from webapp.models import Task, status_choices
 
 
 def index(request):
@@ -10,6 +10,7 @@ def index(request):
 
 
 def create_task(request):
+    tasks = Task.objects
     if request.method == "POST":
         description = request.POST.get('description')
         status = request.POST.get('status')
@@ -17,6 +18,6 @@ def create_task(request):
         Task.objects.create(description=description, status=status, created_at=created_at)
         return HttpResponseRedirect("/")
     else:
-        return render(request, 'create_task.html')
+        return render(request, 'create_task.html', {"status_choices": status_choices})
 
 

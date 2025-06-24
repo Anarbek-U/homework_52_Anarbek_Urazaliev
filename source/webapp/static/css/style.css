@@ -31,7 +31,6 @@ body {
     list-style: none;
     font-weight: bold;
     color: royalblue;
-
 }
 
 .nav-block {
@@ -56,3 +55,25 @@ body {
     background-color: rgba(72, 184, 223, 0.2);
 }
 
+.head-form {
+    text-align: center;
+}
+
+.form-block {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.title-form {
+    margin-top: 70px;
+    margin-bottom: 22px;
+}
+
+.border-form {
+    border: 2px solid black;
+    padding: 35px;
+    width: 53%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
