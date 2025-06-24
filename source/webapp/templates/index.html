@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,26 +7,46 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div class="container">
-    <a href="add-task/">Create task</a>
-    <div class="d-block">
-    {% for task in tasks %}
-    <div class="d-block">
-        <h1>{{task.description}}</h1>
-        <p>{{task.status}}</p>
-        <p>{{task.created_at}}</p>
-        <hr/>
+<header class="header">
+    <div class="container">
+        <div class="hblock">
+            <h1 class="h-block">Задачи</h1>
+            <a href="/add-task/">Новая задача ---</a>
+        </div>
     </div>
+</header>
+<main class="container">
+    <div class="nav-block">
+        <p class="id-main">ID</p>
+        <p class="title-main">Статус</p>
+        <p class="title-main">Описание</p>
+        <p class="title-main">Дата выполнения</p>
 
-    {% empty %}
-    <p>No articles</p>
+
+{#        <ul class="title_nav">#}
+{#            <li>ID</li>#}
+{#            <li>Статус</li>#}
+{#            <li>Описание</li>#}
+{#            <li>Дата выполнения</li>#}
+{#        </ul>#}
+    </div>
+</main>
+<div class="container">
+    {% for task in tasks %}
+    <div class="main-block">
+
+            <p class="id-main">{{ task.id }}</p>
+            <p class="title-main">{{ task.status }}</p>
+            <p class="title-main">{{ task.description }}</p>
+            <p class="title-main">{{ task.created_at }}</p>
+
+    </div>
     {% endfor %}
 </div>
 
-    </div>
+
 </body>
 </html>
