@@ -39,6 +39,12 @@ body {
     gap: 101px;
 }
 
+.nav-dell-block {
+    background-color: darkgrey;
+    display: flex;
+    gap: 81px;
+    padding-left: 182px;
+
 .id-main{
     width: 8%;
     text-align: center;
@@ -53,6 +59,12 @@ body {
     display: flex;
     gap: 101px;
     background-color: rgba(72, 184, 223, 0.2);
+}
+
+.main-dell-block {
+display: flex;
+gap: 81px;
+background-color: rgba(72, 184, 223, 0.2);
 }
 
 .head-form {
@@ -76,4 +88,4 @@ body {
     width: 53%;
     margin-left: 20%;
     margin-top: 5%;
-}
+}}

@@ -10,7 +10,6 @@ def index(request):
 
 
 def create_task(request):
-    tasks = Task.objects
     if request.method == "POST":
         description = request.POST.get('description')
         status = request.POST.get('status')
@@ -19,5 +18,13 @@ def create_task(request):
         return HttpResponseRedirect("/")
     else:
         return render(request, 'create_task.html', {"status_choices": status_choices})
+
+def delete_task(request):
+    if request.method == "POST":
+        task_id = request.POST.get('task_id')
+        Task.objects.filter(id=task_id).delete()
+        return HttpResponseRedirect("/")
+    else:
+        return render(request, 'delete_task.html')
 
 

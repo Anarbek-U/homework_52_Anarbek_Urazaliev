@@ -14,13 +14,11 @@
     <div class="container">
         <div class="hblock">
             <h1 class="h-block">Задачи</h1>
-            <a href="/add-task/">Новая задача</a>
-            <a href="/dell-task/">Удалить выбранную задачу</a>
         </div>
     </div>
 </header>
 <main class="container">
-    <div class="nav-block">
+    <div class="nav-dell-block">
         <p class="id-main">ID</p>
         <p class="title-main">Статус</p>
         <p class="title-main">Описание</p>
@@ -29,7 +27,9 @@
 </main>
 <div class="container">
     {% for task in tasks %}
-    <div class="main-block">
+    <div class="main-dell-block">
+            <label for="{{ task.id }}"></label>
+            <input type="checkbox" id={{ task.id }} name="task_id" value="{{ task.id }}"/>
             <p class="id-main">{{ task.id }}</p>
             <p class="title-main">{{ task.status }}</p>
             <p class="title-main">{{ task.description }}</p>

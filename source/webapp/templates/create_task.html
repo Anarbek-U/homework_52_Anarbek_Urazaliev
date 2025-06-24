@@ -23,15 +23,15 @@
                 <form action="/add-task/" method="post">
                     {% csrf_token %}
                     <label for="description"></label>
-                    <textarea name="description" rows="4" cols="50"></textarea><br/><br/>
+                    <textarea required name="description" rows="4" cols="50"></textarea><br/><br/>
                     <select name="status">
                     {% for status in status_choices %}
-                        <option value="{{status.0}}" 
+                        <option value="{{status.0}}"
                         {% if status.0 == 'new' %}selected{% endif %}> {{status.1}} </option>
-                    {% endfor %} 
+                    {% endfor %}
                     </select><br/>
                     <label for="created_at"></label><br/>
-                    <input type="text" name="created_at"/><br/>
+                    <input required type="date" name="created_at"/><br/>
                     <br/>
                     <input type="submit" value="Создать"/>
                 </form>

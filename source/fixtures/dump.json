@@ -1,0 +1,38 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "description": "Задача №1",
+    "status": "in_progress",
+    "created_at": "2025-06-24"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "description": "Задача №2",
+    "status": "done",
+    "created_at": "2025-06-09"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "description": "Задача №3",
+    "status": "new",
+    "created_at": "2025-06-21"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "description": "Задача №4",
+    "status": "new",
+    "created_at": "2025-06-13"
+  }
+}
+]
