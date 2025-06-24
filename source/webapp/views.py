@@ -20,11 +20,12 @@ def create_task(request):
         return render(request, 'create_task.html', {"status_choices": status_choices})
 
 def delete_task(request):
+    tasks = Task.objects.order_by('-created_at')
     if request.method == "POST":
         task_id = request.POST.get('task_id')
         Task.objects.filter(id=task_id).delete()
         return HttpResponseRedirect("/")
     else:
-        return render(request, 'delete_task.html')
+        return render(request, 'delete_task.html', {"tasks": tasks})
 
 

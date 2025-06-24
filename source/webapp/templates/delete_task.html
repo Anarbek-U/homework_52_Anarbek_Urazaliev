@@ -26,6 +26,8 @@
     </div>
 </main>
 <div class="container">
+<form action="/dell-task/" method="post">
+{% csrf_token %}
     {% for task in tasks %}
     <div class="main-dell-block">
             <label for="{{ task.id }}"></label>
@@ -34,10 +36,13 @@
             <p class="title-main">{{ task.status }}</p>
             <p class="title-main">{{ task.description }}</p>
             <p class="title-main">{{ task.created_at }}</p>
-
     </div>
     {% endfor %}
+    <br/>
+    <input type="submit" value="Удалить">
+</form>
 </div>
+
 
 
 </body>
