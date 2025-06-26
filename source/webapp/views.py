@@ -20,8 +20,9 @@ def create_task(request):
         description = request.POST.get('description')
         status = request.POST.get('status')
         created_at = request.POST.get('created_at')
-        Task.objects.create(description=description, status=status, created_at=created_at)
-        return HttpResponseRedirect("/")
+        more_detailed = request.POST.get('more_detailed')
+        Task.objects.create(description=description, status=status, created_at=created_at, more_detailed=more_detailed)
+        return redirect('index')
     else:
         return render(request, 'create_task.html', {"status_choices": status_choices})
 
