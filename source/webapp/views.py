@@ -28,11 +28,13 @@ def create_task(request):
 
 def detail_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
+    all_tasks = Task.objects.order_by('-created_at')
+    task_num = list(all_tasks).index(task) + 1
     if request.method == "POST":
         task.delete()
         return redirect('index')
     else:
-        return render(request, 'detailed_task.html', {"task": task})
+        return render(request, 'detailed_task.html', {"task": task, "task_num": task_num})
 
 
 

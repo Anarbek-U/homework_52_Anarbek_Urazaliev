@@ -13,12 +13,14 @@ body {
 
 .h-block {
     margin-right: auto;
+    margin-left: 10px;
 }
 
 .hblock {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
 }
 
 .header {
@@ -36,8 +38,9 @@ body {
 .nav-block {
     background-color: darkgrey;
     display: flex;
-    gap: 87px;
-    padding-left: 132px;
+    justify-content: space-between;
+    gap: 67px;
+    padding-left: 143px;
 }
 
 .id-main{
@@ -53,8 +56,8 @@ body {
 .main-block {
 display: flex;
 align-items: center;
-gap: 81px;
-padding-left: 30px;
+gap: 101px;
+padding-left: 25px;
 background-color: rgba(72, 184, 223, 0.2);
 border-bottom: solid 1px #111111;
 }
@@ -89,4 +92,12 @@ border-bottom: solid 1px #111111;
     cursor: pointer;
     padding: 0 15px;
     font: inherit;
+}
+
+.d-block {
+    text-align: center;
+}
+
+.home-tasks {
+    padding-right: 15px;
 }
