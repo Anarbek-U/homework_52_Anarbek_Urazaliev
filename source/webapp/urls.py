@@ -18,10 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.views import index, create_task
+from webapp.views import index, create_task, detail_task
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index),
-    path('add-task/', create_task),
+    path('', index, name='index'),
+    path('add-task/', create_task, name='create_task'),
+    path('detail-task/<int:pk>/', detail_task, name='detail_task'),
 ]

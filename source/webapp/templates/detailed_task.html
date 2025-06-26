@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'detail_task' task.pk %}">
+{% csrf_token %}
+<header class="header">
+    <div class="container">
+        <div class="hblock">
+            <h1 class="h-block">Задача</h1>
+            <a href="{% url 'create_task' %}">Новая задача</a>
+                <input type="submit" value="Удалить задачу" class="button-link">
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="main-block">
+            <h1>Тема:</h1>
+            <p class="title-main">{{ task.description }}</p>
+            <h2>Статус</h2>
+            <p class="title-main">{{ task.get_status_display}}</p>
+            <h3>Дата завершения</h3>
+            <p class="title-main">{{ task.created_at }}</p>
+            <p>Описание</p>
+            <p>{{ task.more_detailed }}</p>
+    </div>
+
+</div>
+</form>
+{% endblock %}

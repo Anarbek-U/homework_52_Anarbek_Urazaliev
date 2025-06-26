@@ -52,9 +52,11 @@ body {
 
 .main-block {
 display: flex;
+align-items: center;
 gap: 81px;
 padding-left: 30px;
 background-color: rgba(72, 184, 223, 0.2);
+border-bottom: solid 1px #111111;
 }
 
 .head-form {
