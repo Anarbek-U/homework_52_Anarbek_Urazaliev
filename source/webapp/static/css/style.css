@@ -66,12 +66,12 @@ border-bottom: solid 1px #111111;
 .form-block {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 40px;
 }
 
 .title-form {
-    margin-top: 70px;
-    margin-bottom: 22px;
+    margin-top: 23px;
+    margin-bottom: 70px;
 }
 
 .border-form {

@@ -16,14 +16,15 @@
             <h1 class="head-form">Создание задачи</h1>
             <div class="form-block">
                 <div>
-                    <div>Описание</div>
-                    <div class="title-form">Статус</div>
+                    <div>Тема</div>
+                    <div class="title-form">Описание</div>
+                    <div>Статус</div><br/>
                     <div>Дата выполнения</div>
                 </div>
                 <form action="/add-task/" method="post">
                     {% csrf_token %}
-                    <label for="description"></label>
-                    <textarea required name="description" rows="4" cols="50"></textarea><br/><br/>
+                    <input type="text" name="description"/><br/><br/>
+                    <textarea required name="more_detailed" rows="4" cols="50"></textarea><br/><br/>
                     <select name="status">
                     {% for status in status_choices %}
                         <option value="{{status.0}}"
