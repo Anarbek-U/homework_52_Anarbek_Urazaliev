@@ -1,43 +1,37 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="border-form">
-            <h1 class="head-form">Создание задачи</h1>
-            <div class="form-block">
-                <div>
-                    <div>Тема</div>
-                    <div class="title-form">Описание</div>
-                    <div>Статус</div><br/>
-                    <div>Дата выполнения</div>
-                </div>
-                <form action="/add-task/" method="post">
-                    {% csrf_token %}
-                    <input type="text" name="description"/><br/><br/>
-                    <textarea required name="more_detailed" rows="4" cols="50"></textarea><br/><br/>
-                    <select name="status">
-                    {% for status in status_choices %}
-                        <option value="{{status.0}}"
-                        {% if status.0 == 'new' %}selected{% endif %}> {{status.1}} </option>
-                    {% endfor %}
-                    </select><br/>
-                    <label for="created_at"></label><br/>
-                    <input required type="date" name="created_at"/><br/>
-                    <br/>
-                    <input type="submit" value="Создать"/>
-                </form>
+{% block title %}Создание задачи{% endblock %}
+
+{% block content %}
+    
+<div class="container">
+    <div class="border-form">
+        <a href="{% url 'index' %}" class="home-tasks">Задачи</a>
+        <h1 class="head-form">Создание задачи</h1>
+        <div class="form-block">
+            <div>
+                <div>Тема</div>
+                <div class="title-form">Описание</div>
+                <div>Статус</div><br/>
+                <div>Дата выполнения</div>
             </div>
+        <form action="{% url 'create_task' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="description"/><br/><br/>
+            <textarea required name="more_detailed" rows="4" cols="50"></textarea><br/><br/>
+            <select name="status">
+            {% for status in status_choices %}
+                <option value="{{status.0}}"
+                {% if status.0 == 'new' %}selected{% endif %}> {{status.1}} </option>
+            {% endfor %}
+            </select><br/>
+            <label for="created_at"></label><br/>
+            <input required type="date" name="created_at"/><br/>
+            <br/>
+            <input type="submit" value="Создать"/>
+        </form>
         </div>
     </div>
-</body>
-</html>
+</div>
+    
+{% endblock %}

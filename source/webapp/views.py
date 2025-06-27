@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+
 from django.shortcuts import render, get_object_or_404, redirect
 
 from webapp.models import Task, status_choices
@@ -10,7 +10,7 @@ def index(request):
         task_ids = request.POST.getlist('task_ids')
         if task_ids:
             Task.objects.filter(id__in=task_ids).delete()
-        return HttpResponseRedirect("/")
+            return redirect('index')
     else:
         return render(request, 'index.html', {"tasks": tasks})
 

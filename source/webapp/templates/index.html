@@ -1,19 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post" action="/">
+
+<form method="post" action="{% url 'index' %}">
 {% csrf_token %}
-<header class="header">
-    <div class="container">
-        <h1>To_Do_List</h1>
-    </div>
-</header>
-<nav class="header">
+<nav>
     <div class="container">
         <div class="hblock">
             <a href="{% url 'index' %}" class="h-block">Задачи</a>
-            <a href="/add-task/">Новая задача</a>
-                <input type="submit" value="Удалить выбранную задачу" class="button-link">
+            <a href="{% url 'create_task' %}">Новая задача</a>
+            <input type="submit" value="Удалить выбранную задачу" class="button-link">
         </div>
     </div>
 </nav>
@@ -23,19 +19,20 @@
         <p class="title-main">Статус</p>
         <p class="title-main">Тема</p>
         <p class="title-main">Дата выполнения</p>
-            </div>
+        </div>
 </main>
 <div class="container">
     {% for task in tasks%}
     <div class="main-block">
-            <input type="checkbox" name="task_ids" value="{{ task.id }}">
-            <p class="id-main">{{ forloop.counter }}</p>
-            <p class="title-main">{{ task.get_status_display}}</p>
-            <p class="title-main"><a href="{% url 'detail_task' task.pk %}">{{ task.description }}</a></p>
-            <p class="title-main">{{ task.created_at }}</p>
-
+        <input type="checkbox" name="task_ids" value="{{ task.id }}">
+        <p class="id-main">{{ forloop.counter }}</p>
+        <p class="title-main">{{ task.get_status_display}}</p>
+        <p class="title-main"><a href="{% url 'detail_task' task.pk %}">{{ task.description }}</a></p>
+        <p class="title-main">{{ task.created_at }}</p>
     </div>
     {% endfor %}
 </div>
 </form>
+
 {% endblock %}
+

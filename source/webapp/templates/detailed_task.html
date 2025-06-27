@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    Задача #{{ task_num }}
+{% endblock %}
+
 {% block content %}
+
 <form method="post" action="{% url 'detail_task' task.pk %}">
 {% csrf_token %}
 <header class="header">
@@ -9,27 +14,26 @@
             <h1 class="h-block">Задача #{{ task_num }}</h1>
             <a href="{% url 'index' %}" class="home-tasks">Задачи</a>
             <a href="{% url 'create_task' %}">Новая задача</a>
-                <input type="submit" value="Удалить задачу" class="button-link">
+            <input type="submit" value="Удалить задачу" class="button-link">
         </div>
     </div>
 </header>
 <div class="container">
     <div class="form-block">
-        <h2 class="h-block">Тема</h2>
+        <h3 class="h-block">Тема</h3>
         <p class="d-block">{{ task.description }}</p>
-       </div>
+    </div>
     <div class="form-block">
-        <h2 class="h-block">Статус</h2>
+        <h3 class="h-block">Статус</h3>
         <p class="d-block">{{ task.get_status_display}}</p>
-        </div>
+    </div>
     <div class="form-block">
-        <h2 class="h-block">Дата завершения</h2>
+        <h3 class="h-block">Дата выполнения</h3>
         <p class="d-block">{{ task.created_at }}</p>
-        </div><hr/>
-            <h3>Описание</h3>
-            <p>{{ task.more_detailed }}</p>
-    
-
+    </div><hr/>
+    <h3 style="margin-left: 10px">Описание</h3>
+    <p style="margin-left: 10px">{{ task.more_detailed }}</p>
 </div>
 </form>
+    
 {% endblock %}
